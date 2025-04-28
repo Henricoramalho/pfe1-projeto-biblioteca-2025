@@ -1,13 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boblioteca ACME</title>
+    <title>Locações - Biblioteca ACME</title>
+    <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/locacoes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <h1>Biblioteca ACME</h1>
+    </header>
+
+    <main class="container">
+        <section class="rentals-section">
+            <h2>Filtrar Locações</h2>
+            <div class="table-container">
+                <table id="rentalsTable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Livro</th>
+                            <th>Leitor</th>
+                            <th>CPF</th>
+                            <th>Data</th>
+                            <th>Previsão</th>
+                            <th>Devolução</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Locações serão inseridas aqui via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>By Henrico Ramalho</p>
+    </footer>
+
+    <script src="../scripts/locacoes.js"></script>
 </body>
-<script src="../scripts/locacoes.js"></script>
 </html>
