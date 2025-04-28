@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const rentalsTable = document.getElementById('rentalsTable').getElementsByTagName('tbody')[0];
 
-    // Render rentals
+
     function renderRentals() {
         rentalsTable.innerHTML = '';
         rentalsData.forEach(rental => {
             const row = document.createElement('tr');
             
-            // Format devolution cell
+           
             const devolucaoCell = rental.devolucao ? 
                 document.createTextNode(rental.devolucao) : 
                 createReturnButton(rental.id);
@@ -62,14 +62,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${createDeleteButton(rental.id).outerHTML}</td>
             `;
             
-            // Add the devolution button or text to the cell
+           
             const devolucaoTd = row.cells[6];
             devolucaoTd.appendChild(devolucaoCell);
             
             rentalsTable.appendChild(row);
         });
 
-        // Add event listeners to return buttons
+        
         document.querySelectorAll('.return-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const rentalId = parseInt(this.getAttribute('data-id'));
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Add event listeners to delete buttons
+       
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const rentalId = parseInt(this.getAttribute('data-id'));
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Create return button
+ 
     function createReturnButton(id) {
         const button = document.createElement('button');
         button.textContent = 'Devolver';
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return button;
     }
 
-    // Create delete button
+   
     function createDeleteButton(id) {
         const button = document.createElement('button');
         button.textContent = 'Excluir';
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return button;
     }
 
-    // Return rental
+   
     function returnRental(rentalId) {
         const rental = rentalsData.find(r => r.id === rentalId);
         if (rental) {
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Delete rental
+    
     function deleteRental(rentalId) {
         if (confirm('Tem certeza que deseja excluir esta locação?')) {
             const index = rentalsData.findIndex(r => r.id === rentalId);
@@ -126,6 +126,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initial render
     renderRentals();
 });

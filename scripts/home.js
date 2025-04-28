@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentBookId = null;
     let rentalsData = JSON.parse(localStorage.getItem('rentals')) || [];
 
-    // Render books
+  
     function renderBooks(books) {
         booksGrid.innerHTML = '';
         books.forEach(book => {
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             booksGrid.appendChild(bookCard);
         });
 
-        // Add event listeners to details buttons
+        
         document.querySelectorAll('.details-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const bookId = parseInt(this.getAttribute('data-id'));
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Show book details in modal
+    
     function showBookDetails(bookId) {
         const book = booksData.find(b => b.id === bookId);
         if (book) {
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Search functionality
+   
     searchInput.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase();
         const filteredBooks = booksData.filter(book => 
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
         renderBooks(filteredBooks);
     });
 
-    // Rent button click
+   
     rentButton.addEventListener('click', function() {
         const book = booksData.find(b => b.id === currentBookId);
         if (book) {
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
             bookModal.style.display = 'none';
             rentModal.style.display = 'block';
             
-            // Set default dates
+           
             const today = new Date();
             const returnDate = new Date();
             returnDate.setDate(today.getDate() + 7);
@@ -188,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Rent form submission
     rentForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -210,12 +209,12 @@ document.addEventListener('DOMContentLoaded', function() {
         rentForm.reset();
     });
 
-    // Rentals button click
+    
     rentalsButton.addEventListener('click', function() {
         window.location.href = 'locacoes.html';
     });
 
-    // Close modals
+  
     for (let i = 0; i < closeButtons.length; i++) {
         closeButtons[i].addEventListener('click', function() {
             bookModal.style.display = 'none';
@@ -223,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close modal when clicking outside
+    
     window.addEventListener('click', function(event) {
         if (event.target === bookModal) {
             bookModal.style.display = 'none';
@@ -233,6 +232,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Initial render
+   
     renderBooks(booksData);
 });
